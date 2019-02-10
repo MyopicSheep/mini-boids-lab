@@ -76,9 +76,20 @@
     
 <footer class="footer" role="contentinfo">
     <div class="copyright">
-        &nbsp;Copyright &copy; 2015<script>new Date().getFullYear()>2016&&document.write("-"+new Date().getFullYear());</script>&nbsp;<a href="https://www.pigandshrub.com" data-toggle="tab" data-ajax="false">PigandShrub.com</a>
+        &nbsp;&nbsp;
+        <a href="https://www.pigandshrub.com" data-toggle="tab" data-ajax="false">PigandShrub.com</a>
     </div>
 </footer>
+<script>
+  var c = document.querySelector('.copyright');
+  var txt = "Copyright \u00A9 2015";
+  if (new Date().getFullYear()>2016) {
+    txt += "-"+ new Date().getFullYear();
+  }
+  var txtn = document.createTextNode(txt);
+  c.insertBefore(txtn, c.childNodes[0]);
+</script>
+
     
 <script src="/mini-boids-lab/js/boidslab-v2.1.5.js"></script>
 <script src="/mini-boids-lab/js/twirling-v2.1.5.js"></script>
