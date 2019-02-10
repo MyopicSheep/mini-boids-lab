@@ -6,8 +6,8 @@
 # 'jekyll serve'. If you change this file, please restart the server process.
 
 # Site settings
-baseurl: "/mini-boids-lab" # the subpath of your site, e.g. /blog
-url: "https://pigandshrub.github.io" # the base hostname & protocol for your site
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://pigandshrub.github.io/mini-boids-lab" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
