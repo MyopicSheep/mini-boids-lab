@@ -1,1 +1,32 @@
-theme: jekyll-theme-slate
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely need to edit after that.
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'jekyll serve'. If you change this file, please restart the server process.
+
+# Site settings
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://boidslab.riceglue.com" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+timezone: Canada/Eastern
+
+# Gems
+gems: 
+- jekyll-paginate
+
+# Customization
+paginate: 30
+paginate_path: "/lab/page:num/"
+
+excerpt_separator: <!--more--> 
+
+permalink: pretty
+
+
+
+
+
+

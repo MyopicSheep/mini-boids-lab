@@ -1,0 +1,11 @@
+<div class="row wrap post-tags">
+    TAGS: 
+    {% if post %}
+        {% assign tags = post.tags %}
+    {% else %}
+        {% assign tags = page.tags %}
+    {% endif %}
+    {% for tag in tags %}
+        <a href="/tags/#{{tag|slugize}}">{{tag}}</a>
+    {% endfor %}
+</div>

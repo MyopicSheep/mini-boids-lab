@@ -1,0 +1,363 @@
+/* Lab */
+
+/* Lab page layout */
+
+button {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid $secondary-color;
+    font-family: $main-font;
+    font-size: 0.8em;
+    padding: 10px 20px;
+    color: $secondary-color;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+}
+
+button:hover {
+    background: rgba(255, 255, 255, 0.6);
+    
+}
+
+.black-background {
+    background-color: #000;
+}
+
+
+.lab-content {
+    min-height: 490px;
+    height: 100vh;
+    
+    &:first-of-type {
+        opacity: 1;
+        animation: slipin 2s;
+        
+        .lab-link {
+            animation: fallin 2s;
+        }
+    }
+
+}
+
+
+.lab-link {
+    position: relative;
+    top: -30%;
+    width: 100%;
+    letter-spacing: 5px;
+    font-size: 0.8em;
+    text-align: center;
+    -webkit-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    
+    a {
+        padding: 20px 40px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border: 3px solid $secondary-color;
+        color: $secondary-color;
+        font-weight: 400;
+    }
+    
+    a:hover, 
+    a:focus {
+        background-color: $sub-text-color;
+        box-shadow: 0 0 1em $secondary-color;
+        color: $sub-dark-color;
+        font-weight: 700;
+    }
+    
+
+}
+
+
+
+/* Lab item preview backgrounds */
+
+.penguin {
+    min-height: 490px;
+    height: 100vh;
+    background: url(../images/penguin/scene1_gray.png) no-repeat no-repeat;
+    background-size: cover;
+}
+    
+
+.parlezvu {
+    min-height: 490px;
+    height: 100vh;
+    background: url(../images/parlezvu/landing_gray.png) no-repeat no-repeat;
+    background-size: cover;
+}
+
+
+.twirling {
+    min-height: 490px;
+    height: 100vh;
+    background: url(../images/boids/twirling_gray.png) no-repeat no-repeat;
+    background-size: cover;
+}
+
+
+.microbes {
+    min-height: 490px;
+    height: 100vh;
+    background: url(../images/boids/microbes_gray.png) no-repeat no-repeat;
+    background-size: cover;
+}
+
+
+.bubbles {
+    min-height: 490px;
+    height: 100vh;
+    background: url(../images/boids/bubbles_gray.png) no-repeat no-repeat;
+    background-size: cover;
+}
+
+
+
+/* Pagination */
+
+.pagination {
+    color: $secondary-color;
+    margin: 2em auto;
+    width: 100%;
+    display: -webkit-flex; // Safari 6.1+
+    -webkit-flex-wrap: nowrap; // Safari 6.1+
+    -webkit-align-items: center; // Safari 6.1+
+    -webkit-justify-content: space-between; // Safari 6.1+
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    
+    a,
+    span {
+        margin: 0 5px;
+        padding: 0 5px;
+        border-radius: 0.3em !important;
+    }
+
+}
+
+
+/* Paginator link specifics */
+
+.active {
+    color: $primary-color !important;
+    background-color: $secondary-color;
+}
+
+
+.inactive {    
+    box-shadow: none !important; 
+    text-decoration: underline !important;
+}
+
+
+/* Loading animation */
+
+@keyframes load {
+    0% { opacity: 0; }
+    50% { opacity: 1; }
+    100% { opacity: 0; display: none; }
+}
+
+
+.loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: $secondary-color;
+    letter-spacing: 5px;
+    transform: translate(-50%, -50%);
+    transition: opacity 2s ease-in-out;
+    animation: load 3s 1;
+    animation-fill-mode: forwards;
+    z-index: 30;
+}
+
+/* Lab items */
+
+.full-screen {
+    position: absolute;
+    padding: 45px 0 0 0;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100vh;
+    opacity: 0;
+}
+
+
+.full-screen-mod {
+    position: fixed;
+    padding: 45px 0 0 0;
+    width: 100%;
+    height: 100%;
+    min-width: 100%;
+    min-height: 100%;
+}
+
+
+.part-screen {
+    display: -webkit-flex; // Safari 6.1+
+    -webkit-align-items: center; // Safari 6.1+
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 70px 0 0 0;
+    height: 400px;
+    width: 100%;
+    border-radius: 0;
+    background-color: #000;
+}
+
+
+.splash-header {
+    height: 90%;
+    -webkit-align-items: center !important;
+    -webkit-justify-content: center !important;
+    -webkit-flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-direction: column !important;
+    transition: all 0.3s ease-in-out;
+    text-align: center;
+    
+    a {
+        display: block;
+    }
+    
+    h2 {
+        font-size: 2.5em;
+        font-family: $main-font !important;
+        line-height: 80%;
+    }
+    
+    p {
+        padding: 2em 15em;
+        
+    }
+    
+    .date {
+        color: $secondary-color;
+        letter-spacing: 3px;
+        font-size: 0.8em;
+
+        &:before, &:after {
+            content: " ~ ";
+        }
+    }
+
+    @media screen and (max-width: $mid-screen) {
+        p {
+            padding: 2em;
+        }
+    }
+    
+}
+
+
+iframe {
+    border: 0;
+    height: calc(100% - 150px);
+    min-width: 100%;
+    padding-bottom: 150px;
+}
+
+
+figure {
+    position: relative;
+    transition: all 0.3s ease-in-out;
+    margin: 0;
+    
+    img {
+        width: 100%;
+    }
+}
+
+
+figcaption {
+    position: absolute;
+    margin: 0 auto;
+    padding-bottom: 100px;
+    width: 100%;
+    text-align: center;
+    bottom: 0;
+    color: $secondary-color;
+    font-size: 0.8em;
+    font-weight: 400;
+    font-style: italic;
+    
+    a {
+        padding: 5px 30px;
+        background-color: rgba(0, 0, 0, 0.2);
+        border: 3px solid $secondary-color;
+        color: $secondary-color;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 0.9em;
+        letter-spacing: 5px;
+    }
+    
+    a:hover,
+    a:focus {
+        background-color: $sub-text-color;
+        box-shadow: 0 0 1em $secondary-color;
+        color: $sub-dark-color;
+        font-weight: 700;
+    }
+    
+    p {
+        padding: 0 1em;
+    }
+    
+    @media screen and (max-width: $mid-screen) {
+        p {
+            font-size: 0.8em;
+        }
+    }
+}
+
+
+.lab-screenshot {
+    -webkit-flex: 1 1 100%; /* Safari 6.1+ */
+    flex: 1 1 100%;
+    min-width: 100%;    
+    margin: 1px;
+    
+    @media screen and (max-width: $mid-screen) {
+        padding: 0;
+        margin: 0;
+        -webkit-flex: 1 1 100%; /* Safari 6.1+ */
+        flex: 1 1 100%;
+        min-width: 100%; 
+    }
+}
+
+
+
+/* Lab button animation */
+
+@keyframes fallin {
+    0% { transform: translateY(-80%); }
+    10% { transform: translateY(-67%); }
+    20% { transform: translateY(-60%); }
+    100% { transform: initial; }
+}
+
+@keyframes slipin {
+    0% { opacity: 0; }
+    100% { opacity: initial; }
+}
+
+
+.slip {
+    animation: slipin 2s;
+}
+
+
+.fall {
+    animation: fallin 3s;
+}
+

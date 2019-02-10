@@ -1,0 +1,68 @@
+
+/* Tags */
+
+.post-tags {
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: $secondary-color;
+    letter-spacing: 3px;
+    
+    a {
+        padding: 2px 5px;
+        margin: 5px;
+        color: #000;
+        background: $secondary-color;
+        
+    }
+}
+
+
+
+// for tag cloud and archives
+
+.tag-cloud {
+    
+    margin-top: 150px;
+    text-align: center;
+    
+    
+    ul { 
+        list-style-type: none;
+        
+    
+        li {
+            display: inline-block;
+            margin: 10px;
+            
+            a {
+                padding: 5px 10px;
+                color: #000;
+                background: $secondary-color;
+                letter-spacing: 3px;
+            }
+            
+        }
+    }
+    
+}
+
+
+.archive-group {
+    margin: 5px;
+    
+    h2 {
+        margin: 90px auto 20px auto;
+        width: 100%;
+        
+    }
+}
+
+.archive-item {
+    text-align: center;
+    
+    a {
+        padding: 5px 10px;
+        letter-spacing: 3px;
+    }
+}
+

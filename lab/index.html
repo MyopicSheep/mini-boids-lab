@@ -1,0 +1,43 @@
+---
+layout: default
+title: Lab Work | Daphne's Mini Boids Lab
+description: "Where her code does most of the talking."
+---
+
+
+<!-- This loops through the paginated posts -->
+<main role="main" class="no-padding">
+    {% for post in paginator.posts %}
+    <article class="lab-content">
+        {{ post.excerpt }}
+        <div class="lab-link"><a class="more-button" href="{{ post.url }}">VIEW</a></div>
+    </article>
+    {% endfor %}
+</main>
+
+{% if paginator.total_pages > 1 %}
+<!-- Pagination links -->
+<div class="pagination">
+    {% if paginator.previous_page %}
+        <a class="inactive" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '/index.html', '/' }}">&laquo; prev</a>
+    {% else %}
+        <span>&laquo; prev</span>
+    {% endif %}
+
+    {% for page in (1..paginator.total_pages) %}
+        {% if page == paginator.page %}
+            <h3 class="bgheader2">{{ page }}</h3>
+        {% elsif page == 1 %}
+            <a class="inactive" href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '/index.html', '/' }}">{{ page }}</a>
+        {% else %}
+            <a class="inactive" href="{{ site.paginate_path | prepend: site.baseurl | replace: '//', '/' | replace: ':num', page }}">{{ page }}</a>
+        {% endif %}
+    {% endfor %}
+
+    {% if paginator.next_page %}
+        <a class="inactive" href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">next &raquo;</a>
+    {% else %}
+        <span>next &raquo;</span>
+    {% endif %}
+</div>
+{% endif %}

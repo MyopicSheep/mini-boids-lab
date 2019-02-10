@@ -11,13 +11,13 @@
 
 
 /**
- * requestAnimationFrame polyfill by Erik Möller. Fixes from Paul Irish and 
- * Tino Zijdel
+ * requestAnimationFrame polyfill by Erik Möller. Fixes from Paul Irish and Tino Zijdel
  * @see: http://paulirish.com/2011/requestanimationframe-for-smart-animating/
- * @see: http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-
- * smart-er-animating
+ * @see: http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
  * @license: MIT license
  */
+
+
 (function () {
     "use strict";
     
@@ -51,8 +51,7 @@
     }
 }());
 
-// This function handles all of the set up, behaviours, and 
-// drawing of the umbrellas.
+
 function twirlingGo() {
     "use strict";
     
@@ -73,8 +72,6 @@ function twirlingGo() {
         canvas.height = element.offsetHeight;
     }
     
-    // These two helper functions help calculate the position of
-    // one "slice of pie" of an umbrella.
     function morfX(cx, r, angle) {
         return (cx + r * Math.cos(angle));
     }
@@ -83,7 +80,7 @@ function twirlingGo() {
         return (cy + r * Math.sin(angle));
     }
 
-    // 
+    
     function prepSide(i, cx, cy, r, numSides) {
         var segments = 2 * Math.PI / numSides,
             sangle = segments * i,
@@ -109,7 +106,6 @@ function twirlingGo() {
         };
     }
     
-    // Set up the boid's appearance, initial position, and behaviour
     function Boid() {
         var i,
             r = Math.floor(Math.random() * 255),
@@ -130,7 +126,8 @@ function twirlingGo() {
         this.fillColor = "rgba(" + r + ", " + g + ", " + b + ", 0.5)";
     }
     
-    // The boid's bouncing behaviour given its position relative to the others 
+
+     
     Boid.prototype.bounce = function (boids) {
         var steerX = 0,
             steerY = 0,
@@ -174,17 +171,13 @@ function twirlingGo() {
     };
 
 
-    // Calculate each factor of a boid's behaviour relative to its flock
-    // and sum up the factors to obtain an incremental value in the form of a x-
-    // directional movement (horz) and y-directional movement (vert). 
+    
     Boid.prototype.flock = function (boids) {
         var bounce = this.bounce(boids);
         this.accelerationX += bounce[0];
         this.accelerationY += bounce[1];
     };
 
-    // Add the calculated incremental value to the boid's current state to
-    // define its next position.
     Boid.prototype.update = function () {
         this.velocityX += this.accelerationX;
         this.velocityY += this.accelerationY;
@@ -195,7 +188,7 @@ function twirlingGo() {
         this.accelerationY = 0;
     };
 
-    // Define how the boids behave near the edges of the browser
+    
     Boid.prototype.borders = function () {
         if (this.x < -this.radius) {
             this.x = canvas.width + this.radius;
@@ -211,7 +204,15 @@ function twirlingGo() {
         }
     };
     
-    // Draw the boid in the canvas
+    
+    Boid.prototype.run = function (boids) {
+        this.flock(boids);
+        this.borders();
+        this.update();
+        this.render();
+    };
+
+
     Boid.prototype.render = function () {
         var i, side;
         ctx.save();
@@ -238,17 +239,8 @@ function twirlingGo() {
         ctx.restore();
     };
 
-    // The run method sets the sequence of events for a boid to
-    // go through with every change in the flock before rendering. 
-    Boid.prototype.run = function (boids) {
-        this.flock(boids);
-        this.borders();
-        this.update();
-        this.render();
-    };
-
-    // Clear the canvas, run through each boid, establishing their next
-    // positions relative to the flock before drawing.
+    
+    
     function drawBoids() {
         var i, j;
         
@@ -260,17 +252,12 @@ function twirlingGo() {
         }
         
         if (!pauseIt) {
-            // Fade animation in on page load
-            document.getElementById('twirling').firstChild.style.opacity = 1;
+            document.getElementById('twirling').firstChild.style.opacity = 1; // To fade in on page load
             window.requestAnimationFrame(drawBoids);
         }
     }
     
-    // Animations can be resource hogs so the next two functions help us pause 
-    // the animation whenever the canvas is not visible
-
-    // Courtesy of http://stackoverflow.com/questions/123999/how-to-tell-if-a-
-    // dom-element-is-visible-in-the-current-viewport
+    // Courtesy of http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
     function isElementInViewport(el) {
         var rect = el.getBoundingClientRect();
         return rect.bottom > 0 &&
@@ -279,9 +266,8 @@ function twirlingGo() {
             rect.top < (window.innerHeight || document.documentElement.clientHeight);
     }
     
+    
     function checkView() {
-        // For efficiencies sake, we only want to run the drawBoids function if 
-        // the canvas is visible AND already paused.
         var page = document.getElementById('twirling').firstChild;
         if (isElementInViewport(page) && pauseIt === true) {
             pauseIt = false;
@@ -294,13 +280,15 @@ function twirlingGo() {
     }
     
     
-    // Monitors opportunities to pause or draw animation.
+    /* draw
+     */
     function draw() {
-        // To avoid continuously checking if canvas still in view while  
-        // scrolling, check 300 ms after scrolling has stopped.
+
+        // Event listeners
+        
         window.addEventListener('scroll', function () {
             clearTimeout(window.scrollFin);
-            window.scrollFin = setTimeout(checkView, 300);
+            window.scrollFin = setTimeout(checkView(), 300);
         }, false);
 
         
@@ -309,10 +297,17 @@ function twirlingGo() {
         }, false);
 
         window.addEventListener('focus', function () {
-            checkView();
+            var page = document.getElementById('twirling').firstChild;
+            if (pauseIt) {
+                pauseIt = false;
+                // Check if animation is still visible when window refocused.
+                if (!isElementInViewport(page)) {
+                    pauseIt = true;
+                }
+                drawBoids();
+            }
         }, false);
 
-        // Don't forget to redraw the canvas size when the browser is re-sized
         window.addEventListener('resize', function () {
             setTimeout(function () {
                 var newCanvas = document.getElementById('twirling');
@@ -335,14 +330,12 @@ function twirlingGo() {
         ctx = canvas.getContext('2d');
         page = document.getElementById('twirling').firstChild;
         
-        // Set up the boids (umbrellas) to draw
+        // Add the boids
         for (i = 0; i < numBoids; i += 1) {
             jar.push(new Boid());
         }
         
-        // Animation is paused by default.
-        // Play animation immediately after page loads if the canvas can be 
-        // seen in the viewport.
+        // Play animation at page load if it's already in viewport.
         if (isElementInViewport(page)) {
             pauseIt = false;
         }
@@ -357,9 +350,7 @@ function twirlingGo() {
     
 }
 
-// Only run if the page contains an element tagged with twirling id.
-// Allow 100ms for any page transitions to occur before starting
-// the animation.
+
 window.addEventListener('load', function () {
     "use strict";
     if (document.getElementById('twirling')) {

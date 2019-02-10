@@ -1,0 +1,29 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Our variables
+$main-font: "Open Sans", sans-serif;
+$second-font: "Lora", sans-serif;
+$primary-color: rgba(3, 22, 55, 1);
+$secondary-color: rgba(255, 255, 255, 1);
+$sub-text-color: #fff;
+$sub-dark-color: #069;
+
+$mid-screen: 850px;
+$small-screen: 520px;
+
+
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "grid",
+        "fonts",
+        "navbar",
+        "general",
+        "lab",
+        "about",
+        "footer",
+        "tags"
+;

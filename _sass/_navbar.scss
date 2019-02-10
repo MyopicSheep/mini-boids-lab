@@ -1,0 +1,80 @@
+
+/* Mini Navbar */
+
+.miniNav {
+    top: 15px;
+    width: 100%;
+    font-family: $main-font;
+    font-size: 1em;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 1px;
+    position: fixed;
+    transition: all 0.5s ease-in-out;
+    z-index: 1000;
+    
+    img {
+        height: 35px;
+    }
+    
+    
+    ul {
+        margin: 0 20px;
+        padding: 0;
+        list-style-type: none;
+        display: flex;
+        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: flex-end;
+
+        @media screen and (max-width: $small-screen) {
+            justify-content: center;
+        }
+        
+        li {
+            display: inline;
+            
+            a {
+                display: inline-block;
+                margin: 5px;
+                padding: 10px 20px;
+                border-radius: 2em !important;
+                border: 3px solid transparent;
+                transition: all 1s ease-in-out;
+            }
+
+            a:hover,
+            a:focus {
+                //box-shadow: 0 0 1em $secondary-color;
+            }
+            
+        }
+        
+    }
+    
+}
+
+.nav-button {
+    padding: 1em !important;
+}
+
+/* Nav link extras */
+
+
+@keyframes glowin {
+    0% { box-shadow: 0 0 0.5em $secondary-color; }
+    100% { box-shadow: 0 0 1em $secondary-color; }
+}
+
+
+.active-nav-link {
+    border: 3px solid $secondary-color !important;
+    box-shadow: 0 0 1em $secondary-color;
+    transition: all 0.5s ease-in-out;
+    animation: glowin 1s;
+}
+
+
+
+
+

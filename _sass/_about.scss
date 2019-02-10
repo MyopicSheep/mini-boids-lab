@@ -1,0 +1,45 @@
+
+/* Bio */ 
+
+.big-title {
+    font-size: 3.5em;
+    letter-spacing: -1px;
+    margin: 0.5em auto 0 auto;
+    text-align: center;
+}
+
+
+.nuttify {
+    position: relative;
+    margin: 0 auto;
+    margin-top: 1.5em;
+    line-height: 100%;
+    
+    @media screen and (max-width: $mid-screen) {
+        margin-top: 3em;
+    }
+}
+
+// slipin animation is in lab scss
+.about-description {
+    text-align: center;
+    padding: 1em;
+    transition: all 0.5s ease-in-out;
+    animation: slipin 1s;
+
+    @media screen and (max-width: $mid-screen) {
+        padding: 3em 1em;
+    }
+}
+
+
+@keyframes dropin {
+    0% { transform: translateY(-10%); }
+    100% { transform: initial; }
+}
+
+
+
+
+
+

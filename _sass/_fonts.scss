@@ -1,0 +1,104 @@
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/opensansopen-sans-v13-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans'), local('OpenSans'),
+       url('../fonts/opensansopen-sans-v13-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/opensansopen-sans-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/opensansopen-sans-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/opensansopen-sans-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/opensansopen-sans-v13-latin-regular.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+/* open-sans-700 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/opensansopen-sans-v13-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Open Sans Bold'), local('OpenSans-Bold'),
+       url('../fonts/opensansopen-sans-v13-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/opensansopen-sans-v13-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/opensansopen-sans-v13-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/opensansopen-sans-v13-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/opensansopen-sans-v13-latin-700.svg#OpenSans') format('svg'); /* Legacy iOS */
+}
+
+/* lora-regular - latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/loralora-v9-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Lora'), local('Lora-Regular'),
+       url('../fonts/loralora-v9-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/loralora-v9-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/loralora-v9-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/loralora-v9-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/loralora-v9-latin-regular.svg#Lora') format('svg'); /* Legacy iOS */
+}
+/* lora-700 - latin */
+@font-face {
+  font-family: 'Lora';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/loralora-v9-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Lora Bold'), local('Lora-Bold'),
+       url('../fonts/loralora-v9-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/loralora-v9-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/loralora-v9-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/loralora-v9-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/loralora-v9-latin-700.svg#Lora') format('svg'); /* Legacy iOS */
+}
+
+
+/* riceglue */
+@font-face {
+    font-family: 'riceglue';
+    src: url('../fonts/riceglue/riceglue.eot?f96jhx');
+    src: local('riceglue'),
+        url('../fonts/riceglue/riceglue.eot?f96jhx#iefix') format('embedded-opentype'),
+        url('../fonts/riceglue/riceglue.ttf?f96jhx') format('truetype'),
+        url('../fonts/riceglue/riceglue.woff?f96jhx') format('woff'),
+        url('../fonts/riceglue/riceglue.svg?f96jhx#riceglue') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+[class^="icon-"], [class*=" icon-"] {
+    font-family: 'riceglue' !important;
+    speak: none;
+    font-size: 2.5em;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+.icon-apps:before {
+  content: "\e900";
+}
+.icon-blog:before {
+  content: "\e901";
+}
+.icon-doodles:before {
+  content: "\e902";
+}
+.icon-history:before {
+  content: "\e903";
+}
+.icon-new_window:before {
+  content: "\e904";
+}
+.icon-rg_logo:before {
+  content: "\e905";
+}
+
