@@ -10,7 +10,7 @@ description: "Where her code does most of the talking."
     {% for post in paginator.posts %}
     <article class="lab-content">
         {{ post.excerpt }}
-        <div class="lab-link"><a class="more-button" href="{{ post.url }}">VIEW</a></div>
+        <div class="lab-link"><a class="more-button" href="{{ site.baseurl }}{{ post.url }}">VIEW</a></div>
     </article>
     {% endfor %}
 </main>
