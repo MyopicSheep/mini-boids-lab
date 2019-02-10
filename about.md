@@ -16,7 +16,7 @@ description: "A (very) brief blurb about this site."
                 <p>
                    This website was lovingly coded by a creature nut named Daphne Cheung.<br><br>
                    <small>
-                     PS. In case you wanted to know, she used Jekyll, SASS, JavaScript, jQuery, and HTML5 to build the site.
+                     PS. In case you wanted to know, she used Jekyll, SASS, JavaScript, jQuery, and HTML5 to build this site.
                    </small>
                 </p>
             </div>

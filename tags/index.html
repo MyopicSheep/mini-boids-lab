@@ -1,0 +1,35 @@
+---
+layout: page
+permalink: /tags/
+---
+
+<nav role="navigation" class="row tag-cloud">
+    <ul>
+    {% for tag in site.tags %}
+        {% assign posts = tag | last %}
+        <li>
+            <a href="#{{ tag | first | slugize }}">
+                {{ tag | first }} ({{ posts | size }})
+            </a>
+        </li>
+    {% endfor %}
+    </ul>
+</nav>
+
+<main>
+    <div id="archives">
+    {% for tag in site.tags %}
+        <article class="archive-group">
+            {% capture tag_name %}{{ tag | first }}{% endcapture %}
+            <h2 id="{{ tag_name | slugize }}" class="big-title">{{ tag_name }}</h2>
+            <h3 class="text-center">(Posts by tag)</h3>
+            {% for post in site.tags[tag_name] %}
+            <div class="row wrap archive-item">
+                <a href="{{ root_url }}{{ post.url }}">{{post.title}}</a>
+            </div>
+            {% endfor %}
+        </article>
+    {% endfor %}
+    </div>
+    <div class="gap"></div>
+</main>
