@@ -2,7 +2,7 @@
 layout: default
 title: Daphne's Mini Boids Lab
 description: "Works inspired by Craig Reynolds' Boids model for computerized animal motion." 
-permalink: /home/
+permalink: /
 ---
 
 
