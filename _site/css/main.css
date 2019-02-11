@@ -185,6 +185,9 @@
         border: 3px solid transparent;
         transition: all 1s ease-in-out; }
 
+.github-button img {
+  height: 32px !important; }
+
 .nav-button {
   padding: 1em !important; }
 

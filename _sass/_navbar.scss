@@ -54,6 +54,14 @@
     
 }
 
+
+.github-button {
+  img {
+      height: 32px !important;
+  }
+
+}
+
 .nav-button {
     padding: 1em !important;
 }
@@ -65,7 +73,6 @@
     0% { box-shadow: 0 0 0.5em $secondary-color; }
     100% { box-shadow: 0 0 1em $secondary-color; }
 }
-
 
 .active-nav-link {
     border: 3px solid $secondary-color !important;
